@@ -17,8 +17,9 @@ export const theme = createTheme({
     },
     common: {
       black: '#202020',
-      gray: '#5f6368',
-      blue: '#1a73e8'
+      grey: '#5f6368',
+      blue: '#1a73e8',
+      darkBlue: '#3c4ea6'
     },
   },
   typography: {

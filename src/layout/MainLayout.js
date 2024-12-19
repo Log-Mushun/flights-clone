@@ -3,6 +3,7 @@ import Navbar from '../components/navbar/Navbar';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../styles/theme';
 import Box from '@mui/material/Box';
+import Footer from './Footer';
 
 export default function MainLayout({ children }) {
   return (
@@ -16,6 +17,7 @@ export default function MainLayout({ children }) {
             alignItems: 'center'
             }}>
           {children}
+        <Footer/>
         </Box>
       </Box>
   );

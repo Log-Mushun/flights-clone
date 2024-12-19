@@ -6,7 +6,13 @@ import Box from '@mui/material/Box';
 import { ReactComponent as Flights } from '../images/svg/flights.svg';
 import Typography from '@mui/material/Typography';
 import FlightSearchBar from '../components/searchBar/FlightsSearchBar';
-import InfoIconOutlined from '@mui/icons-material/InfoOutlined';
+import FlightsInfo from '../components/homePage/FlightsInfo';
+import MapImage from './MapImage';
+import ToolsSection from '../components/homePage/ToolsSection';
+import Carousel from '../components/homePage/Carousel';
+import Faqs from '../components/homePage/Faqs';
+import PopularRoutesSection from '../components/homePage/PopularRoutesSection';
+
 const HomePage = () => {
   return (
     <MainLayout>
@@ -15,7 +21,13 @@ const HomePage = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '70rem',
+        width: {
+          xs: '90%', 
+          sm: '85%',  
+          md: '80%',    
+          lg: '80%',   
+          xl: '50%'      
+        },
       }}>
         <Box
         sx={{
@@ -25,44 +37,47 @@ const HomePage = () => {
             justifyContent: 'center',
             height: 'auto',
             position: 'relative',
+            width: '100%',
         }}
         >
             <CardMedia 
             component={Flights}
-            sx={{ width: 1248}}
+            sx={{ 
+                height: '100%',
+                width: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center'
+            }}
             />
-            <Typography variant="h2"
+            <Typography 
+            variant="h2"
             sx={{
                 position: 'absolute',
-                bottom: 0,
+                bottom: {
+                    xs: '5%',
+                    sm: '10%'
+                },
             }}
             >
                 Flights
             </Typography>
            
         </Box>
-        <FlightSearchBar />
-          <Box sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'left',
+        <Box sx={{
           width: '100%',
+          paddingRight: '5vw !important',
+          paddingLeft: '5vw !important',
+          boxSizing: 'border-box'
         }}>
-
-          <Typography variant="h6"
-              sx={{
-                  textAlign: 'left',
-                  mr: '4rem',
-                  ml: '4rem',
-                  mt: 6,
-              }}>
-                      Find cheap flights from your location to anywhere
-                      <InfoIconOutlined sx={{ fontSize: '20px', ml: 1, color: theme.palette.grey[600] }} />
-          </Typography>
+          <FlightSearchBar />
+        <FlightsInfo />
+        <MapImage />
+        <ToolsSection />
+        <Carousel />
+        <Faqs/>
+        <PopularRoutesSection/>
         </Box>
-
       </Box>
-     
     </MainLayout>
   );
 };

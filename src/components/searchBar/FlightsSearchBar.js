@@ -3,8 +3,6 @@ import { Box, TextField, Select, MenuItem, Button, IconButton, InputAdornment, D
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import SearchIcon from "@mui/icons-material/Search";
-import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CircleIconOutlined from '@mui/icons-material/CircleOutlined';
 import LocationOnIconOutlined from '@mui/icons-material/LocationOnOutlined';
 import { theme } from "../../styles/theme";
@@ -12,8 +10,13 @@ export default function FlightSearchBar() {
     const [isDateFieldActive, setIsDateFieldActive] = useState(false);
 
     return (
-        <Box sx={{ position: "relative", alignItems: 'center', justifyContent: 'center',}}>
-
+        <Box sx={{ 
+            position: "relative", 
+            display: 'flex',
+            alignItems: 'center', 
+            justifyContent: 'center',
+            width: '100%',
+        }}>
             <Box sx={{
                 width: '100%',
                 mt: 2,
@@ -22,12 +25,10 @@ export default function FlightSearchBar() {
                 backgroundColor: "#fff",
                 gap: 1,
                 flexWrap: "wrap",
-                padding: "10px 10px 40px 10px",
+                padding: "10px 20px 40px 20px",
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                mr: '4rem',
-                ml: '4rem',
                 flexDirection: 'column',
             }}>
                 {/* Round Trip Selector */}
@@ -82,7 +83,13 @@ export default function FlightSearchBar() {
                             },
                         }}
                         sx={{
-                            flex:1
+                            flex: 1,
+                            '& .MuiInputBase-input': {
+                                '&::placeholder': {
+                                    color: theme.palette.grey[700],
+                                    opacity: 1 
+                                },
+                            }
                         }}
                     />
 
@@ -104,7 +111,13 @@ export default function FlightSearchBar() {
                             },
                         }}
                         sx={{
-                            flex:1
+                            flex:1,
+                            '& .MuiInputBase-input': {
+                                '&::placeholder': {
+                                    color: theme.palette.grey[700],
+                                    opacity: 1 
+                                },
+                            }
                         }}
                     />
 
@@ -132,6 +145,8 @@ export default function FlightSearchBar() {
                             },
                         }}
                         sx={{
+                            flex: 1,
+                            width: '50%',
                             pl: '15px',
                             '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
                                 borderRight: 'none',
@@ -144,6 +159,12 @@ export default function FlightSearchBar() {
                             '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                                 borderRight: `2px solid ${theme.palette.common.blue}`,
                                 borderRadius: '10px'
+                            },
+                            '& .MuiInputBase-input': {
+                                '&::placeholder': {
+                                    color: theme.palette.grey[700],
+                                    opacity: 1 
+                                },
                             }
                         }}
                     />
@@ -166,16 +187,10 @@ export default function FlightSearchBar() {
                         onMouseEnter={() => setIsDateFieldActive(true)}
                         onMouseLeave={() => setIsDateFieldActive(false)}
                         onFocus={() => setIsDateFieldActive(true)}
-                        onBlur={() => setIsDateFieldActive(false)}
-                        slots={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <CalendarTodayIcon />
-                                </InputAdornment>
-                            ),
-                        }}
+                        onBlur={() => setIsDateFieldActive(false)}                       
                         sx={{
-                            flex:1,
+                            flex: 1,
+                            width: '50%',
                             '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
                                 borderLeft: 'none',
                                 borderRadius: '0px 10px 10px 0px'
@@ -187,6 +202,12 @@ export default function FlightSearchBar() {
                             '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                                 borderLeft: `2px solid ${theme.palette.common.blue}`,
                                 borderRadius: '10px'
+                            },
+                            '& .MuiInputBase-input': {
+                                '&::placeholder': {
+                                    color: theme.palette.grey[700],
+                                    opacity: 1 
+                                },
                             }
                         }}
                     />
